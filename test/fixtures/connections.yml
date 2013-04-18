@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  os: MyString
+  server_domain: MyString
+  ssh_port: MyString
+  ssh_password: MyString
+  db_name: MyString
+  db_port: 1
+  dbms_name: MyString
+  blurb: MyText
+
+two:
+  os: MyString
+  server_domain: MyString
+  ssh_port: MyString
+  ssh_password: MyString
+  db_name: MyString
+  db_port: 1
+  dbms_name: MyString
+  blurb: MyText

@@ -1,0 +1,58 @@
+<%- model_class = Connection -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:os) %></th>
+      <th><%= model_class.human_attribute_name(:server_domain) %></th>
+      <th><%= model_class.human_attribute_name(:ssh_port) %></th>
+      <th><%= model_class.human_attribute_name(:ssh_password) %></th>
+      <th><%= model_class.human_attribute_name(:db_name) %></th>
+      <th><%= model_class.human_attribute_name(:db_port) %></th>
+      <th><%= model_class.human_attribute_name(:dbms_name) %></th>
+      <th><%= model_class.human_attribute_name(:blurb) %></th>
+      <th><%= model_class.human_attribute_name(:sshkey_file_name) %></th>
+      <th><%= model_class.human_attribute_name(:sshkey_content_type) %></th>
+      <th><%= model_class.human_attribute_name(:sshkey_file_size) %></th>
+      <th><%= model_class.human_attribute_name(:sshkey_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @connections.each do |connection| %>
+      <tr>
+        <td><%= link_to connection.id, connection_path(connection) %></td>
+        <td><%= connection.os %></td>
+        <td><%= connection.server_domain %></td>
+        <td><%= connection.ssh_port %></td>
+        <td><%= connection.ssh_password %></td>
+        <td><%= connection.db_name %></td>
+        <td><%= connection.db_port %></td>
+        <td><%= connection.dbms_name %></td>
+        <td><%= connection.blurb %></td>
+        <td><%= connection.sshkey_file_name %></td>
+        <td><%= connection.sshkey_content_type %></td>
+        <td><%= connection.sshkey_file_size %></td>
+        <td><%= connection.sshkey_updated_at %></td>
+        <td><%=l connection.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_connection_path(connection), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      connection_path(connection),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_connection_path,
+            :class => 'btn btn-primary' %>

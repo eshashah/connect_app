@@ -1,0 +1,43 @@
+<%- model_class = Connection -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:os) %>:</strong></dt>
+  <dd><%= @connection.os %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:server_domain) %>:</strong></dt>
+  <dd><%= @connection.server_domain %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssh_port) %>:</strong></dt>
+  <dd><%= @connection.ssh_port %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssh_password) %>:</strong></dt>
+  <dd><%= @connection.ssh_password %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:db_name) %>:</strong></dt>
+  <dd><%= @connection.db_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:db_port) %>:</strong></dt>
+  <dd><%= @connection.db_port %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dbms_name) %>:</strong></dt>
+  <dd><%= @connection.dbms_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:blurb) %>:</strong></dt>
+  <dd><%= @connection.blurb %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sshkey_file_name) %>:</strong></dt>
+  <dd><%= @connection.sshkey_file_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sshkey_content_type) %>:</strong></dt>
+  <dd><%= @connection.sshkey_content_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sshkey_file_size) %>:</strong></dt>
+  <dd><%= @connection.sshkey_file_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sshkey_updated_at) %>:</strong></dt>
+  <dd><%= @connection.sshkey_updated_at %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              connections_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_connection_path(@connection), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              connection_path(@connection),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

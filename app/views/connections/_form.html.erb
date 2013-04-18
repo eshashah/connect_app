@@ -1,0 +1,80 @@
+<%= form_for @connection, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :os, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :os, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :server_domain, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :server_domain, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssh_port, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssh_port, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssh_password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssh_password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :db_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :db_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :db_port, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :db_port, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dbms_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :dbms_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :blurb, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :blurb, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sshkey_file_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sshkey_file_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sshkey_content_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sshkey_content_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sshkey_file_size, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :sshkey_file_size, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sshkey_updated_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :sshkey_updated_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                connections_path, :class => 'btn' %>
+  </div>
+<% end %>
